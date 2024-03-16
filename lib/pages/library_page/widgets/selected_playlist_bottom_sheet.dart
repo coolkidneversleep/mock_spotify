@@ -42,7 +42,7 @@ class SelectedPlaylistBottomSheet extends HookWidget {
       height: MediaQuery.of(context).size.height * 0.95,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-        color: const Color.fromARGB(255, 18, 16, 16),
+        color:  Color.fromARGB(255, 18, 16, 16),
       ),
       child: Stack(children: [
         Column(

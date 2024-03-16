@@ -4,7 +4,7 @@ import 'package:mockspotify/pages/search_page/widgets/search_item.dart';
 import '../../../models/album_model.dart';
 
 class SearchList extends StatelessWidget {
-  const SearchList({required this.searchResult});
+  const SearchList({super.key, required this.searchResult});
   final Future<List<AlbumModel>?> searchResult;
 
   @override

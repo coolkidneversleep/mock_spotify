@@ -2,16 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mockspotify/api/user_api.dart';
 import 'package:mockspotify/models/playlist_detail_model.dart';
 import 'package:mockspotify/widgets/play_music_button.dart';
 import 'package:mockspotify/widgets/track_item.dart';
 
-import '../../api/api.dart';
 import '../../models/playlist_track_list_model.dart';
-import '../../models/track_list_model.dart';
 import '../../widgets/custom_button.dart';
 
 class PlaylistDetailPage extends StatelessWidget {

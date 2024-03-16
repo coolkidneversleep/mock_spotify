@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mockspotify/api/api.dart';
+import 'package:mockspotify/pages/main_home_page/widgets/navigation_item.dart';
 import 'package:mockspotify/pages/search_page/search_page.dart';
 
 import '../home_page/home_page.dart';
 import '../library_page/library_page.dart';
+import '../sample_page/sample_page.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -20,7 +20,7 @@ class _MainHomePageState extends State<MainHomePage> {
   int currentPageIndex = 0;
   final pages = [
     const HomePage(),
-    const SearchPage(),
+    const SamplePage(),
     const SearchPage(),
     const LibraryPage(),
   ];
@@ -30,7 +30,7 @@ class _MainHomePageState extends State<MainHomePage> {
       length: 4,
       child: Builder(builder: (context) {
         final TabController? tabController = DefaultTabController.of(context);
-        API.getAccessToken();
+
         return Scaffold(
           backgroundColor: const Color.fromARGB(255, 18, 16, 16),
           bottomNavigationBar: Container(
@@ -42,7 +42,7 @@ class _MainHomePageState extends State<MainHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _navigationItem(
+                NavigationItem(
                   onpressed: () {
                     tabController?.animateTo(0);
                     setState(() {
@@ -54,7 +54,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   isSelected: currentPageIndex == 0,
                   name: 'Home',
                 ),
-                _navigationItem(
+                NavigationItem(
                   onpressed: () {
                     tabController?.animateTo(1);
 
@@ -67,7 +67,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   isSelected: currentPageIndex == 1,
                   name: 'Samples',
                 ),
-                _navigationItem(
+                NavigationItem(
                   onpressed: () {
                     tabController?.animateTo(2);
 
@@ -80,7 +80,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   isSelected: currentPageIndex == 2,
                   name: 'Explore',
                 ),
-                _navigationItem(
+                NavigationItem(
                   onpressed: () {
                     tabController?.animateTo(3);
 
@@ -96,58 +96,9 @@ class _MainHomePageState extends State<MainHomePage> {
               ],
             ),
           ),
-          // body: pages[currentPageIndex],
           body: TabBarView(controller: tabController, children: pages),
         );
       }),
-    );
-  }
-}
-
-class _navigationItem extends StatefulWidget {
-  const _navigationItem(
-      {super.key,
-      required this.onpressed,
-      required this.icon,
-      required this.selectedIcon,
-      required this.isSelected,
-      required this.name});
-  final void Function() onpressed;
-  final IconData icon;
-  final IconData selectedIcon;
-  final bool isSelected;
-  final String name;
-
-  @override
-  State<_navigationItem> createState() => __navigationItemState();
-}
-
-class __navigationItemState extends State<_navigationItem> {
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoButton(
-      onPressed: widget.onpressed,
-      padding: EdgeInsets.zero,
-      child: Column(
-        children: [
-          Icon(
-            widget.isSelected ? widget.selectedIcon : widget.icon,
-            size: 20,
-            color: widget.isSelected ? Colors.white : Colors.grey,
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            widget.name,
-            style: TextStyle(
-              color: widget.isSelected ? Colors.white : Colors.grey,
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-            ),
-          )
-        ],
-      ),
     );
   }
 }

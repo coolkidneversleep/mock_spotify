@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:mockspotify/api/api.dart';
 import 'package:mockspotify/api/user_api.dart';
 
 class CreatePlaylistBottomSheet extends HookWidget {
@@ -46,7 +45,7 @@ class CreatePlaylistBottomSheet extends HookWidget {
           height: MediaQuery.of(context).size.height * 0.45,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-            color: const Color.fromARGB(255, 18, 16, 16),
+            color:  Color.fromARGB(255, 18, 16, 16),
           ),
           child: Column(
             children: [
@@ -59,7 +58,7 @@ class CreatePlaylistBottomSheet extends HookWidget {
                 ),
               ),
               TextField(
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 controller: playlistNameInput,
                 decoration: const InputDecoration(
                   hintStyle: TextStyle(color: Colors.grey),
@@ -70,7 +69,7 @@ class CreatePlaylistBottomSheet extends HookWidget {
                 height: 20,
               ),
               TextField(
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 controller: descriptionInput,
                 decoration: const InputDecoration(
                   hintStyle: TextStyle(color: Colors.grey),
@@ -87,8 +86,8 @@ class CreatePlaylistBottomSheet extends HookWidget {
                       inactiveTrackColor: Colors.grey,
                       value: isPublic.value,
                       onChanged: (value) => isPublic.value = value),
-                  SizedBox(width: 20),
-                  Text(
+                  const SizedBox(width: 20),
+                  const Text(
                     'public',
                     style: TextStyle(color: Colors.white),
                   )
@@ -116,8 +115,8 @@ class CreatePlaylistBottomSheet extends HookWidget {
                       borderRadius: BorderRadius.circular(45)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         'Create Playlist',
                         style: TextStyle(
                             color: Colors.black,

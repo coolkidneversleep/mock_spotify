@@ -2,16 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:mockspotify/api/api.dart';
 import 'package:mockspotify/api/user_api.dart';
 import 'package:mockspotify/models/album_detail_model.dart';
-import 'package:mockspotify/models/artist_model.dart';
 import 'package:mockspotify/models/track_list_model.dart';
 import 'package:mockspotify/widgets/custom_button.dart';
 import 'package:mockspotify/widgets/play_music_button.dart';
-import 'package:mockspotify/pages/search_page/search_page.dart';
 import 'package:mockspotify/widgets/track_item.dart';
 
 class AlbumDetailPage extends StatelessWidget {
@@ -25,14 +20,8 @@ class AlbumDetailPage extends StatelessWidget {
   final String? albumId;
   @override
   Widget build(BuildContext context) {
-    getArtistDetail(String artistId) async {
-      var artistDetail = await UserAPI.getArtistDetail(artistId);
-      return artistDetail.images;
-    }
-
     return Scaffold(
         backgroundColor: Colors.black.withOpacity(0.8),
-        // backgroundColor: const Color.fromARGB(255, 18, 16, 16),
         body: FutureBuilder(
             future: UserAPI.getAlbumDetail(albumId ?? ''),
             builder: (context, snapshot) {
@@ -176,7 +165,7 @@ class AlbumDetailPage extends StatelessWidget {
                                           height: 200,
                                           width: 200,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                         Text(

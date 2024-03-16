@@ -5,7 +5,7 @@ import '../../album_detail_page/album_detail_page.dart';
 
 class SearchItem extends StatelessWidget {
   const SearchItem(
-      {required this.albumId,
+      {super.key, required this.albumId,
       required this.image,
       required this.title,
       required this.subtitle});

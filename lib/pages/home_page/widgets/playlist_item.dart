@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mockspotify/pages/playlist_detail_page/playlist_detail_page.dart';
 
 class PlaylistItem extends StatelessWidget {
-  const PlaylistItem({
+  const PlaylistItem({super.key, 
     required this.playListId,
     required this.image,
     required this.description,

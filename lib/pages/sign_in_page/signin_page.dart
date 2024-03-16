@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mockspotify/api/auth_api.dart';
 import 'package:mockspotify/pages/main_home_page/main_home_page.dart';
 

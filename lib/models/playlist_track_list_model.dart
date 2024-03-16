@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:mockspotify/models/artist_model.dart';
-import 'package:mockspotify/models/image_model.dart';
 import 'package:mockspotify/models/playlist_track_model.dart';
 
 class PlaylistTrackListModel extends Equatable {

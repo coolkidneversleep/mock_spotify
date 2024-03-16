@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mockspotify/pages/playlist_detail_page/playlist_detail_page.dart';
 
 class UserPlaylistItem extends StatelessWidget {

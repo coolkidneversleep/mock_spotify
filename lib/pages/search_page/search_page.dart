@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:mockspotify/api/api.dart';
-import 'package:mockspotify/models/album_model.dart';
-import 'package:mockspotify/pages/album_detail_page/album_detail_page.dart';
+import 'package:mockspotify/api/search_api.dart';
 import 'package:mockspotify/pages/search_page/widgets/search_list.dart';
 
 import '../../widgets/custom_search_text_filed.dart';
@@ -18,15 +16,6 @@ class SearchPage extends HookWidget {
   Widget build(BuildContext context) {
     final searchTextController = useTextEditingController();
     final searchText = useState('');
-
-    Future<List<AlbumModel>> getSearchResult({
-      searchWord = '',
-      required void Function(List<AlbumModel> resultList) onSearchSuccess,
-    }) async {
-      final searchResult = await API.getSearch(searchWord);
-      onSearchSuccess(searchResult);
-      return searchResult;
-    }
 
     return SafeArea(
         child: Scaffold(
@@ -65,11 +54,8 @@ class SearchPage extends HookWidget {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: SearchList(
-                    searchResult: API.getSearch(searchText.value),
+                    searchResult: SearchAPI.getSearch(searchText.value),
                   )),
             )));
   }
 }
-
-
-

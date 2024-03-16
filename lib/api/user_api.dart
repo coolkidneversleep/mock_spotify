@@ -6,7 +6,6 @@ import '../models/album_detail_model.dart';
 import '../models/artist_model.dart';
 import '../models/playlist_detail_model.dart';
 import '../models/playlist_model.dart';
-import '../models/playlist_track_list_model.dart';
 import '../models/track_list_model.dart';
 
 class UserAPI{
@@ -46,6 +45,7 @@ class UserAPI{
     } catch (e) {
       print('error :: $e');
     }
+    return null;
   }
 
     static Future<List<PlaylistModel>> getUserPlayList() async {
@@ -107,7 +107,7 @@ class UserAPI{
             headers: {'Authorization': 'Bearer $accessToken'}),
       );
     } catch (e) {
-      print('err :: $e');
+      print('error :: $e');
     }
   }
 
@@ -138,9 +138,10 @@ class UserAPI{
       );
       return PlaylistDetailModel.fromMap(response.data);
     } catch (e) {
-      print('err:: $e');
+      print('error :: $e');
      
     }
+    return null;
   }
 
   static Future<ArtistModel> getArtistDetail(String artistId) async {
@@ -151,7 +152,6 @@ class UserAPI{
           options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
       return ArtistModel.fromMap(response.data);
     } catch (e) {
-      print(e);
       return const ArtistModel(id: '', name: '', type: '', images: []);
     }
   }
@@ -166,7 +166,6 @@ class UserAPI{
       );
       return AlbumDetailModel.fromMap(response.data);
     } catch (e) {
-      print('err:: $e');
       return const AlbumDetailModel(
           id: 'id',
           name: 'name',

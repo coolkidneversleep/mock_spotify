@@ -63,7 +63,7 @@ class AlbumDetailModel extends Equatable {
       type: map['type'] ?? '',
       releaseDate: map['release_date'] ?? '',
       tracks:
-          TrackListModel.fromMap(map['tracks'] ?? TrackListModel(items: [])),
+          TrackListModel.fromMap(map['tracks'] ?? const TrackListModel(items: [])),
       images: (map['images'] as List<dynamic>?)
               ?.map((e) => ImageModel.fromMap(e))
               .toList() ??

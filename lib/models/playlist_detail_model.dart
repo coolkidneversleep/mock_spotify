@@ -1,11 +1,8 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:mockspotify/models/album_model.dart';
-import 'package:mockspotify/models/artist_model.dart';
 import 'package:mockspotify/models/image_model.dart';
 import 'package:mockspotify/models/playlist_track_list_model.dart';
-import 'package:mockspotify/models/track_list_model.dart';
 
 class PlaylistDetailModel extends Equatable {
   final String id;
@@ -59,7 +56,7 @@ class PlaylistDetailModel extends Equatable {
               .toList()
           : [], // Return an empty list if 'images' is not a List
       tracks: PlaylistTrackListModel.fromMap(
-          map['tracks'] ?? PlaylistTrackListModel(items: [])),
+          map['tracks'] ?? const PlaylistTrackListModel(items: [])),
     );
   }
 

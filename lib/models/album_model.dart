@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:mockspotify/models/artist_model.dart';
 import 'package:mockspotify/models/image_model.dart';
-import 'package:mockspotify/models/track_list_model.dart';
 
 class AlbumModel extends Equatable {
   final String id;
